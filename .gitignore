@@ -3,6 +3,7 @@
 # 可选：同时忽略IDEA生成的模块文件
 *.iml
 # 忽略extract-tool/outputs/outputs/default下的所有内容
+outputs/outputs/default/results.json
 outputs/
 
 # Byte-compiled / optimized / DLL files
@@ -212,5 +213,4 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-outputs/outputs/default/results.json
-outputs/outputs/default/results.json
+
