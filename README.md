@@ -76,8 +76,6 @@ python app.py
 
 ![主页面提取表单预览](docs/screenshots/index.png)
 
-> 如果你在本地运行并想替换这两张图片，请把新的截图放到 `docs/screenshots/index.png` 与 `docs/screenshots/result.png`，然后提交到仓库。
-
 ---
 
 ## 文件与目录说明
