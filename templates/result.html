@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>提取结果</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:20px;max-width:900px}
+    table{border-collapse:collapse;width:100%}
+    th,td{padding:8px;border:1px solid #ddd}
+    .ok{color:green}.err{color:red}
+  </style>
+</head>
+<body>
+  <h1>提取结果</h1>
+  <p>输出目录: {{ outdir }}</p>
+
+  <table>
+    <thead><tr><th>URL</th><th>状态</th><th>说明</th></tr></thead>
+    <tbody>
+      {% for r in results %}
+      <tr>
+        <td style="word-break:break-all">{{ r.url }}</td>
+        <td>{% if r.ok %}<span class="ok">成功</span>{% else %}<span class="err">失败</span>{% endif %}</td>
+        <td>
+          {% if r.ok %}
+            {{ r.title or '' }}<br/>
+            {% if saved_files and (r.path) %}
+              {% for f in saved_files %}
+                {% if f.endswith(r.path.split('/')[-1]) %}
+                  <a href="/download/{{ f }}">下载 {{ f.split('/')[-1] }}</a><br/>
+                {% endif %}
+              {% endfor %}
+              <!-- fallback show absolute path -->
+              路径: {{ r.path }}
+            {% else %}
+              路径: {{ r.path }}
+            {% endif %}
+          {% else %}
+            错误: {{ r.error }}
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p><a href="/">回到主页</a></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>设置 - 默认保存路径</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>body{font-family:Arial,Helvetica,sans-serif;margin:20px;max-width:900px} input[type=text]{width:100%} .btn{display:inline-block;padding:8px 14px;background:#1976d2;color:#fff;text-decoration:none;border-radius:4px}</style>
+</head>
+<body>
+  <h1>设置</h1>
+  <form action="/settings" method="post">
+    <div>
+      <label>默认保存路径（相对于 outputs 根目录 或 绝对路径）：</label>
+      <input type="text" name="default_outdir" value="{{ config.default_outdir }}" />
+    </div>
+    <p class="small">提示：为安全起见，服务器只允许将文件保存到应用的 outputs 子目录中。</p>
+    <div style="margin-top:12px">
+      <button type="submit" class="btn">保存</button>
+      <a href="/" style="margin-left:8px">回到主页</a>
+    </div>
+  </form>
+</body>
+</html>
